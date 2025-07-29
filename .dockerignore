@@ -1,0 +1,15 @@
+bin/
+obj/
+out/
+.idea/
+.vscode/
+.env
+*.log
+*.db
+*.user
+secrets.json
+*.suo
+.git
+.gitignore
+*.md
+docker-compose.override.yml
