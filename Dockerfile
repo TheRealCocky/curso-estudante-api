@@ -13,16 +13,11 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 
-# Instala o cliente do PostgreSQL para usar pg_isready
-RUN apt-get update && apt-get install -y postgresql-client && rm -rf /var/lib/apt/lists/*
-
+# Copia os arquivos publicados
 COPY --from=build /app/out ./
-COPY wait-for-postgres.sh ./
 
-RUN chmod +x wait-for-postgres.sh
+# Inicia a aplicação diretamente
+ENTRYPOINT ["dotnet", "WebApplication1.dll"]
 
-# Executa o script antes de iniciar a aplicação
-ENTRYPOINT ["./wait-for-postgres.sh"]
-CMD ["dotnet", "WebApplication1.dll"]
 
 

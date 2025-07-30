@@ -1,31 +1,25 @@
-# Build results
+# .NET
 bin/
 obj/
-out/
-
-# Rider (JetBrains)
-.idea/
-*.iml
-
-# User-specific files
+.vs/
 *.user
 *.suo
-*.db
+
+# Rider
+.idea/
+
+# Logs
 *.log
-.env
-secrets.json
 
-# ASP.NET app settings
+# App configs (se contêm senhas ou strings de conexão)
 appsettings.Development.json
-appsettings.Local.json
+appsettings.json
 
-# VS Code (caso alguém use também)
-.vscode/
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Docker override (se usar)
+# Docker
+*.pid
+Dockerfile.*
 docker-compose.override.yml
+
+# Outros
+.env
 
